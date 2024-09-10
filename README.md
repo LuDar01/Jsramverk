@@ -18,3 +18,4 @@ Throughout the project, we adhered to the GitHub Flow methodology, which involve
 - Opening Pull Requests to merge changes into the main branch after thorough review.
 
 This approach ensured that we maintained a stable and secure codebase while enabling effective collaboration within the team.
+=======
