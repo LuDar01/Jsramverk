@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-const port = process.env.PORT || 1800;
+const port = process.env.PORT;
 
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -32,6 +32,15 @@ app.post("/", async (req, res) => {
 
     return res.redirect(`/${result.lastID}`);
 });
+
+// Route to update an existing document
+app.post("/update", async (req, res) => {
+    const { id, ...content } = req.body;  // Extract ID and the rest of the content
+    await documents.updateOne(id, content);  // Call updateOne to update the document
+
+    return res.redirect(`/${id}`);
+});
+
 
 app.get('/:id', async (req, res) => {
     return res.render(

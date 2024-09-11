@@ -1,6 +1,21 @@
 <%- include('includes/header'); %>
     <h2>Dokument</h2>
+
     <% docs.forEach(function(doc){ %>
         <h3><a href="/<%= doc.id %>"><%= doc.title %></a></h3>
+        <ul>
+            <li> 
+                <a href="/<%= doc.id %>/edit">Redigera</a>
+            </li>
+        </ul>
     <% }); %>
+
+
+        <h3>Skapa Ny Dokument</h3>
+        <form action="/" method="POST">
+            <input type="text" name="title" placeholder="Title" required>
+            <button type="submit">Skapa</button>
+        </form>
+    </body>
+
 <%- include('includes/footer'); %>

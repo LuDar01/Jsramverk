@@ -43,6 +43,24 @@ const docs = {
         } finally {
             await db.close();
         }
+    },
+
+        // Method to update an existing document
+    updateOne: async function updateOne(id, body) {
+        let db = await openDb();
+        try {
+            return await db.run(
+                'UPDATE documents SET title = ?, content = ? WHERE rowid = ?',
+                
+                body.title,
+                body.content,
+                id
+            );
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await db.close();
+        }
     }
 };
 
