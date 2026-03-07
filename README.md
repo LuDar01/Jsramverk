@@ -1,21 +1,27 @@
-# Jsramverk
-Starter project for DV1677 JSRamverk
+# Jsramverk - SSR Editor
 
-## Application functionality
+Starter project for the JSRamverk course. This application is a Server-Side Rendered (SSR) document editor built with Express, EJS, and SQLite.
 
-To get the application up and running, we began by cloning the repository from GitHub and navigating into the project directory. After that, we installed the necessary dependencies using `npm install`, which set up the environment as specified in the `package.json` file.
+## Application Functionality & Setup
 
-We then created a `.env` file in the root directory to configure environment variables, particularly setting the `PORT` variable to `3000` to ensure the application listens on the correct port.
+To get the application up and running, we followed these steps:
 
-Once the environment was configured, we addressed security vulnerabilities in the dependencies by running `npm audit` to identify potential issues and used `npm audit fix` to automatically resolve most of them.
+1. **Cloning & Installation**: We cloned the repository and ran `npm install` to download all necessary dependencies.
+2. **Environment Configuration**: We created a `.env` file in the root directory and defined the `PORT` (e.g., `PORT=3000`) so the server knows where to listen.
+3. **Database Initialization**: We used the provided reset script (`bash db/reset_db.bash`) to initialize the SQLite database and create the required `documents` table.
+4. **Fixing Scripts**: We updated `package.json` to include a proper `start` script pointing to `app.mjs` and a `dev` script using `nodemon` for a smoother development workflow.
+5. **Security**: We ran `npm audit` and `npm audit fix` to resolve high-level security vulnerabilities in the dependency tree.
+6. **Template Logic**: We implemented safety checks in the EJS views to handle empty database states and added a `POST /update` route to allow editing of existing documents.
 
-To launch the application, we ran `npm start`, which starts the server on the specified port and confirms that it is running correctly by displaying a message indicating the port number.
+## Choice of Frontend Framework
 
-Throughout the project, we adhered to the GitHub Flow methodology, which involved:
+For the upcoming parts of the course, we have decided to use **React**. 
 
-- Creating branches for new features or bug fixes.
-- Committing and pushing changes frequently.
-- Opening Pull Requests to merge changes into the main branch after thorough review.
+Both team members have previous experience with React, which makes it a natural and efficient choice for us. Beyond our familiarity, React's component-based architecture and massive ecosystem make it an ideal tool for building a more complex, interactive editor. Its documentation is comprehensive, and the library's popularity ensures that we can find solutions to any technical hurdles we might encounter.
 
-This approach ensured that we maintained a stable and secure codebase while enabling effective collaboration within the team.
-=======
+## Workflow
+
+Throughout the project, we adhered to the **GitHub Flow** methodology:
+- Creating descriptive branches for every feature (e.g., `specification`).
+- Committing small, logical changes frequently.
+- Using Pull Requests for code review before merging into the main branch.

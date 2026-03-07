@@ -1,12 +1,21 @@
 <%- include('includes/header'); %>
+<%
+const isUpdate = (typeof doc != 'undefined' && doc && doc.id);
+const formAction = isUpdate ? "/update" : "/";
+%>
     <h2>Dokument</h2>
-    <form method="POST" action="/" class="new-doc">
+    <form method="POST" action="<%= formAction %>" class="new-doc">
+
+        <% if (isUpdate) { %>
+            <input type="hidden" name="id" value="<%= doc.id %>">
+        <% } %>
+
         <label for="title">Titel</label>
-        <input type="text" name="title" value="<%= doc.title %>" />
+        <input type="text" name="title" value="<%= (typeof doc !== 'undefined' && doc) ? doc.title : '' %>" />
 
         <label for="content">Innehåll</label>
-        <textarea name="content"><%= doc.content %></textarea>
+        <textarea name="content"><%= (typeof doc !== 'undefined' && doc) ? doc.content : '' %></textarea>
 
-        <input type="submit" value="Uppdatera" />
+        <input type="submit" value="<%= isUpdate ? 'Spara ändringar' : 'Skapa nytt' %>" />
     </form>
 <%- include('includes/footer'); %>
