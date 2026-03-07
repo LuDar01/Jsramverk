@@ -1,5 +1,7 @@
 
-# Redovisning - Specification
+# Redovisning
+
+## Lab 1
 
 ### Vilka lärdomar gjorde du dig kring ditt sätt att ta dig an kod som du inte själv skrivit?
 Det tog ett litet tag att bekanta sig med filstrukturen och hur Emil valt att separera logiken mellan `app.mjs` och `docs.mjs`. Men när jag väl förstod hur flödet mellan routern och databasmodulen fungerade var det faktiskt lättare än förväntat att bygga vidare på koden. Det är en bra påminnelse om att man inte behöver förstå precis varje rad direkt, utan att det räcker med att förstå "ingångarna" och "utgångarna" i koden för att kunna göra ändringar.
