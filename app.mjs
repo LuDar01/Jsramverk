@@ -42,8 +42,8 @@ app.post("/update", async (req, res) => {
     const { id, ...content } = req.body;
     await documents.updateOne(id, content);
     // Return a success message
-    return res.json({ message: "Document updated successfully"});
-    
+    return res.json({ message: "Document updated successfully" });
+
     // const { id, ...content } = req.body;  // Extract ID and the rest of the content
     // await documents.updateOne(id, content);  // Call updateOne to update the document
 
