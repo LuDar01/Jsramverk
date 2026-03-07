@@ -29,28 +29,43 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/", async (req, res) => {
     const result = await documents.addOne(req.body);
+    // Return new ID and a 201 created status
+    return res.status(201).json({ id: result.lastID })
 
-    return res.redirect(`/${result.lastID}`);
+    // const result = await documents.addOne(req.body);
+
+    // return res.redirect(`/${result.lastID}`);
 });
 
 // Route to update an existing document
 app.post("/update", async (req, res) => {
-    const { id, ...content } = req.body;  // Extract ID and the rest of the content
-    await documents.updateOne(id, content);  // Call updateOne to update the document
+    const { id, ...content } = req.body;
+    await documents.updateOne(id, content);
+    // Return a success message
+    return res.json({ message: "Document updated successfully"});
+    
+    // const { id, ...content } = req.body;  // Extract ID and the rest of the content
+    // await documents.updateOne(id, content);  // Call updateOne to update the document
 
-    return res.redirect(`/${id}`);
+    // return res.redirect(`/${id}`);
 });
 
 
 app.get('/:id', async (req, res) => {
-    return res.render(
-        "doc",
-        { doc: await documents.getOne(req.params.id) }
-    );
+    const doc = await documents.getOne(req.params.id);
+    return res.json(doc);
+
+    // return res.render(
+    //     "doc",
+    //     { doc: await documents.getOne(req.params.id) }
+    // );
 });
 
 app.get('/', async (req, res) => {
-    return res.render("index", { docs: await documents.getAll() });
+    const allDocs = await documents.getAll();
+    return res.json(allDocs);
+    // return res.render("index", { docs: await documents.getAll() });
+
 });
 
 app.listen(port, () => {
