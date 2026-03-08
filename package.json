@@ -4,8 +4,7 @@
   "description": "Starter project for DV1677 JSRamverk",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.mjs"
+  "test": "NODE_ENV=test mocha 'test/**/*.test.mjs' --exit",    "start": "nodemon app.mjs"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +20,9 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2"
   }
 }
