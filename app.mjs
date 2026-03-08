@@ -11,6 +11,7 @@ import cors from 'cors';
 import documents from "./docs.mjs";
 
 const app = express();
+app.use(cors());
 
 app.disable('x-powered-by');
 
